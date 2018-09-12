@@ -90,10 +90,15 @@ if(len(sys.argv) < 2):
 string_query = sys.argv[1]
 
 
+#establish stop word filtering
+search_mode = False
+
 if(len(sys.argv) > 2):
-	search_mode = True
-else:
-	search_mode = False
+	if(sys.argv[2].lower() == 'yes'
+	or sys.argv[2].lower() == 'y'
+	or sys.argv[2].lower() == 'true'
+	or sys.argv[2].lower() == 'please'):
+		search_mode = True
 
 #concat strings, create URL
 url = wikipedia_api_link + string_query
